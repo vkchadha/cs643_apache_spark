@@ -1,0 +1,22 @@
+FROM spark:3.5.1-scala2.12-java11-ubuntu
+WORKDIR /app
+USER root
+
+RUN apt-get update -y \
+&&  apt-get install wget -y \
+&&  apt-get install openjdk-8-jdk-headless -y \
+&&  apt-get install supervisor -y
+RUN apt-get install -y python3-pip
+
+Run mkdir /app/data && mkdir /app/model
+
+COPY requirements.txt /app/
+
+COPY inference.py /app/.
+COPY pyspark_helper/ /app/pyspark_helper/.
+COPY model.tar /app/model.tar
+COPY data/ValidationDataset.csv /app/data/.
+
+COPY pyspark_helper/* /app/pyspark_helper/.
+RUN pip3 install -r /app/requirements.txt && tar -xvf /app/model.tar
+ENTRYPOINT ["/usr/bin/python3 /app/inference.py"]

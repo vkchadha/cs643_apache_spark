@@ -1,0 +1,2 @@
+aws emr create-cluster --release-label emr-7.1.0 --applications Name=Spark --ec2-attributes KeyName=vockey_3 --instance-groups InstanceGroupType='MASTER,InstanceCount=1,InstanceType=m4.large' InstanceGroupType='CORE,InstanceCount=4,InstanceType=m4.large' --service-role EMR_DefualtRole --insatnce-profile  EMR_ECR_DefaultRole --auto-terminate --use-default-roles 
+#--bootstrap-actions 's3://vc35sparktraining/bootstrap.sh

@@ -10,7 +10,8 @@ https://github.com/vkchadha/cs643_apache_spark
 There are 3 sections to this read me
 Section 1: Model & Training 
 Seciont 2: Setting up EMR cluster ( Pyspark ENV ) 
-Seciont 2: Setting up Docker & Running Inference
+Seciont 3: Setting up Docker & Running Inference
+Seciton 4: Chat CPT 
 
 
 
@@ -87,12 +88,18 @@ Log on the ec2 instance
 command : 
 git clone https://github.com/vkchadha/cs643_apache_spark
 
+sudo apt-get update -y
 
+sudo apt-get install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
 docker build -t apache_docker .
+sudo docker build -t apache_docker .
 docker run -it --entrypoint /bin/bash apache_docker
 /usr/bin/python3 /app/inference.py
 
-
+Seciton 4: Chat CPT 
 
 
 

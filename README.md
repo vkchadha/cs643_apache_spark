@@ -82,7 +82,12 @@ Docker Hub
 https://hub.docker.com/repository/docker/vc35/cs643_pyspark_project/general
 Build docker image 
 
+
+Log on the ec2 instance
 command : 
+git clone https://github.com/vkchadha/cs643_apache_spark
+
+
 docker build -t apache_docker .
 docker run -it --entrypoint /bin/bash apache_docker
 /usr/bin/python3 /app/inference.py

@@ -94,12 +94,20 @@ sudo apt-get install docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
-docker build -t apache_docker .
 sudo docker build -t apache_docker .
-docker run -it --entrypoint /bin/bash apache_docker
+sudo docker build -t apache_docker .
+sudo docker images # read the image id 
+sudo docker run -it --entrypoint /bin/bash apache_docker
 /usr/bin/python3 /app/inference.py
 
 Seciton 4: Chat CPT 
 
+
+Chat GPT was very usefull in small tasks such : 
+I asked it to show me how to install docker on amazon ec2 , it was exactly correct
+https://chat.openai.com/c/32df547f-dce9-4cd9-b6e6-09492b8eda96
+
+Chat GPT was a good replacement google search getting to the correct articles.  
+Chat GPT was not good as when asked to write code
 
 
